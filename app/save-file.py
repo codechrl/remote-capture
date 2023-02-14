@@ -4,6 +4,7 @@ import time
 import os
 from tqdm import tqdm
 from datetime import datetime
+import settings
 
 root_dir = settings.project_dir
 
@@ -61,7 +62,7 @@ while True:
                         df_temp = pd.DataFrame(record)
                         df_save = pd.concat([df_save, df_temp], ignore_index=True)
                         df_save.to_csv(root_dir+'/data/file_record.csv', index=False)
-                        df_save.to_excel(root_dir+'/data/file_record.xlsx', index=False)
+                        #df_save.to_excel(root_dir+'/data/file_record.xlsx', index=False)
                         #print(f"{time_now()}  INFO\t: Found HTTP Payload")
 
                     except Exception as e:
