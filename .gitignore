@@ -1,3 +1,8 @@
-# /data/json
-# /data/pcap
 .env
+
+app/__pycache__
+
+/data/json
+/data/pcap
+/data/*.csv
+/data/*.xlsx
