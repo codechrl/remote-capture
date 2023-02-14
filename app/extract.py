@@ -29,6 +29,7 @@ def add_to_dataframe(pcap_files, dataframe):
             new_row = pd.DataFrame({'filename': [file],
                                      'extracted': False,
                                      'saved': False,
+                                     'cleaned': False,
                                      })
             dataframe = pd.concat([dataframe, new_row], ignore_index=True)
     return dataframe
@@ -48,6 +49,7 @@ while True:
             df = pd.DataFrame(columns=['filename'])
             df['extracted'] = False
             df['saved'] = False
+            df['cleaned'] = False
 
         # Add the pcap files to the dataframe if they are not already in the "filename" column
         df = add_to_dataframe(pcap_files, df)
