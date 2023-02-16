@@ -25,12 +25,12 @@ def save_file():
 
 def save_http_file():
     """save http file"""
-    os.system("python save-http-file.py")
+    os.system("python save_http_file.py")
 
 
 def save_http_db():
     """save http db"""
-    os.system("python save-http-db.py")
+    os.system("python save_http_db.py")
 
 
 def cleaner():

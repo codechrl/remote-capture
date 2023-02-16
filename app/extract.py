@@ -39,7 +39,7 @@ while True:
 
                 # Save the updated dataframe to disk
                 df.to_csv(root_dir + "/data/file_status.csv", index=False)
-                print(f"{time_now()}  INFO\t: CSV Saved")
+                print(f"{time_now()}  INFO\t: CSV FIle Status Updated")
 
     except Exception as e:
         print(f"{time_now()}  ERROR\t: {str(e)}")
