@@ -1,57 +1,82 @@
 import multiprocessing
 import os
-from datetime import datetime
+import time
 
-# Function
-def time_now(friendly = False):
-    now = datetime.now()
-    if friendly:
-        dt_string = now.strftime("%Y-%m-%d_%H:%M:%S")
-    else:
-        dt_string = now.strftime("%Y/%m/%d %H:%M:%S")
+import settings
+from util import time_now
 
-    return str(dt_string)
+root_dir = settings.project_dir
 
-# Define the process
+
 def remote_capture():
-    os.system( "python remote-capture.py" )
-    pass
+    """remote capture"""
+    os.system("python remote_capture.py")
+
 
 def extract():
-    os.system( "python extract.py" )
-    pass
+    """extract"""
+    os.system("python extract.py")
+
 
 def save_file():
-    os.system( "python save-file.py" )
-    pass
+    """save file"""
+    os.system("python save_file.py")
 
-def save_db():
-    os.system( "python save-db.py" )
-    pass
+
+def save_http_file():
+    """save http file"""
+    os.system("python save-http-file.py")
+
+
+def save_http_db():
+    """save http db"""
+    os.system("python save-http-db.py")
+
 
 def cleaner():
-    os.system( "python cleaner.py" )
-    pass
+    """cleaner"""
+    os.system("python cleaner.py")
+
 
 # Create a list of functions
-funcs = [ cleaner, remote_capture, extract, save_file]
+funcs = [
+    cleaner,
+    remote_capture,
+    extract,
+    save_file,
+    # save_http_file,
+    # save_http_db,
+]
 
 try:
+    # Directory path
+    dirs = ["/data", "/data/pcap", "/data/json"]
+
+    # Create directory if it doesn't exist
+    for dir in dirs:
+        dir_path = root_dir + dir
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+            print(f"{time_now()}  INFO\t: Directory '{dir}' created successfully")
+
     # Create a process for each function and start them
     processes = [multiprocessing.Process(target=func) for func in funcs]
     for process, func in zip(processes, funcs):
         process.start()
         print(f"{time_now()}  INFO\t: Sucessfully Started {func}")
-    
-    time.sleep(10)
+
+    time.sleep(120)
+
     # Terminate all processes
     for process in processes:
         process.terminate()
+        print(f"{time_now()}  INFO\t: Sucessfully Terminated {str(process)}")
 
 except Exception as e:
     print(f"{time_now()}  ERROR\t: {str(e)}")
 
-finally:
-    # Terminate all processes
-    for process in processes:
-        process.terminate()
+# finally:
+#     # Terminate all processes
+#     for process in processes:
+#         process.terminate()
+#     pass
