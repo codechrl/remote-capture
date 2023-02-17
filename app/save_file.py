@@ -1,4 +1,5 @@
 import json
+import time
 
 import pandas as pd
 
@@ -57,4 +58,5 @@ while True:
 
     except Exception as e:
         print(str(e))
+        time.sleep(10)
         # pass

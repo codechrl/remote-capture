@@ -10,10 +10,10 @@ from util import time_now
 root_dir = settings.project_dir
 
 # SSH login credentials for the remote server
-HOSTNAME = settings.HOSTNAME
-USERNAME = settings.USERNAME
-PASSWORD = settings.PASSWORD
-PORT = settings.PORT
+HOSTNAME = str(settings.HOSTNAME)
+USERNAME = str(settings.USERNAME)
+PASSWORD = str(settings.PASSWORD)
+PORT = str(settings.PORT)
 
 # Print ceredentials
 print(f"{time_now()}  INFO\t: HOSTNAME {HOSTNAME}")
@@ -30,7 +30,12 @@ ACTIVITY_THRESHOLD = 50
 # Create a new SSH client
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-client.connect(HOSTNAME, PORT, USERNAME, PASSWORD)
+try:
+    client.connect(HOSTNAME, PORT, USERNAME, PASSWORD)
+except paramiko.SSHException as e:
+    client.get_transport().auth_password(HOSTNAME, PASSWORD)
+
+
 print(f"{time_now()}  INFO\t: Connected to Remote Server {HOSTNAME}")
 print(f"{time_now()}  INFO\t: Listening")
 
