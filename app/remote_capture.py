@@ -48,7 +48,7 @@ while True:
     local_file = open(pcap_filename, "wb")
 
     # Capture the PCAP file on the remote server
-    CMD = "tcpdump -s 0 -U -w - "
+    CMD = "tcpdump -i any -s 0 -U -w - "
     FILTER = "not port 22"
     stdin, stdout, stderr = client.exec_command(CMD + FILTER)
 
