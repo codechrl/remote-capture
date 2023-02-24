@@ -37,9 +37,11 @@ while True:
                 try:
                     # Append new data to existing dataframe
                     df_new = pd.DataFrame(data).T
-                    df_save = pd.concat([df_save, df_new], axis=1)
+
+                    df_save = pd.concat([df_save, df_new], ignore_index=True)
                     df_save = df_save.reset_index(drop=True)
-                    df_save_excel = pd.concat([df_save_excel, df_new], axis=1)
+
+                    df_save_excel = pd.concat([df_save_excel, df_new], ignore_index=True)
                     df_save_excel = df_save_excel.reset_index(drop=True)
 
                     # Save update for file record
