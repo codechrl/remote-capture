@@ -40,10 +40,10 @@ def cleaner():
 
 # Create a list of functions
 funcs = [
-    cleaner,
     remote_capture,
     extract,
     save_file,
+    cleaner,
     # save_http_file,
     # save_http_db,
 ]
@@ -64,6 +64,7 @@ try:
     for process, func in zip(processes, funcs):
         process.start()
         print(f"{time_now()}  INFO\t: Sucessfully Started {func}")
+        time.sleep(1)
 
     time.sleep(120)
 
