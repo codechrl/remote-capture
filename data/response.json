@@ -1,0 +1,51 @@
+{
+   "data": [
+     {
+       "id": 1,
+       "type": "Ubuntu 16.04 Xenial Xerus",
+       "server_name": "Website",
+       "alerts_count": 21,
+       "severity": "Low",
+       "standard": "NIST",
+       "last_updated": "2023-02-25"
+     },
+     {
+       "id": 2,
+       "type": "Ubuntu 22.04 Jammy Jellyfish",
+       "server_name": "API Services",
+       "alerts_count": 108,
+       "severity": "High",
+       "standard": "NIST",
+       "last_updated": "2023-02-28"
+     },
+     {
+       "id": 3,
+       "type": "Windows Server 2022",
+       "server_name": "Postgre Database",
+       "alerts_count": 13,
+       "severity": "Low",
+       "standard": "NIST",
+       "last_updated": "2023-02-28"
+     },
+     {
+       "id": 4,
+       "type": "Ubuntu 22.04 Focal Fossa",
+       "server_name": "Influx Database",
+       "alerts_count": 32,
+       "severity": "Low",
+       "standard": "NIST",
+       "last_updated": "2023-02-28"
+     }
+   ],
+   "pagination": {
+     "page": 1,
+     "limit": 10,
+     "total_in_page": 4,
+     "total_all_page": 4
+   },
+   "meta": {
+     "code": 200,
+     "status": "success",
+     "message": ""
+   }
+ }

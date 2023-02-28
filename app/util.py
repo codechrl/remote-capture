@@ -5,6 +5,37 @@ from datetime import datetime
 
 import pandas as pd
 
+columns = [
+    "version",
+    "ihl",
+    "tos",
+    "len",
+    "id",
+    "flags_fragment",
+    "frag",
+    "ttl",
+    "proto",
+    "chksum",
+    "src",
+    "dst",
+    "options",
+    "time",
+    "sport",
+    "dport",
+    "seq",
+    "ack",
+    "dataofs",
+    "reserved",
+    "flags",
+    "window",
+    "chksum_payload",
+    "urgptr",
+    "options_payload",
+    "payload",
+    "payload_raw",
+    "payload_hex",
+]
+
 
 def time_now(friendly=False):
     """get time now"""

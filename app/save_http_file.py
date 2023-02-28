@@ -12,7 +12,6 @@ from util import time_now
 root_dir = settings.project_dir
 
 while True:
-
     # Read csv file status
     try:
         df_status = pd.read_csv(root_dir + "/data/file_status.csv")
@@ -25,7 +24,6 @@ while True:
 
         for idx, row in df_status.iterrows():
             if row["extracted"] == True and row["saved"] == False:
-
                 # Read JSON file
                 file = row["filename"].split(".")[0]
                 f = open(f"{root_dir}/data/json/{ file }.json")
@@ -36,7 +34,6 @@ while True:
 
                 # Returns dict to pandas dataframe
                 for k, v in tqdm(data.items()):
-
                     # Scan for HTTP Payload on Frame
                     try:
                         receipt = v["ethernet"]["ipv4"]["tcp"]["http"]["receipt"]

@@ -25,7 +25,7 @@ print(f"{time_now()}  INFO\t: PORT {PORT}")
 ACTIVITY_COUNT = 0
 
 # The number of activities to capture in each PCAP file
-ACTIVITY_THRESHOLD = 50
+ACTIVITY_THRESHOLD = 250
 
 # Create a new SSH client
 client = paramiko.SSHClient()
@@ -41,9 +41,8 @@ print(f"{time_now()}  INFO\t: Listening")
 
 # Start the main loop
 while True:
-
     # Create a new PCAP file based on the current time
-    current_time = time.strftime("%Y-%m-%d_%H:%M:%S")
+    current_time = time.strftime("%Y-%m-%d_%H-%M-%S")
     pcap_filename = root_dir + "/data/pcap/capture_" + current_time + ".pcap_"
     local_file = open(pcap_filename, "wb")
 
@@ -62,7 +61,6 @@ while True:
 
         # Check the activity count
         if ACTIVITY_COUNT >= ACTIVITY_THRESHOLD:
-
             # Reset the activity counter
             ACTIVITY_COUNT = 0
 

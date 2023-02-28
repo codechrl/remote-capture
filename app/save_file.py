@@ -9,7 +9,6 @@ from util import time_now
 root_dir = settings.project_dir
 
 while True:
-
     try:
         # Read csv file status
         df_status = pd.read_csv(root_dir + "/data/file_status.csv")
@@ -24,7 +23,6 @@ while True:
 
         for idx, row in df_status.iterrows():
             if row["extracted"] and row["saved"] is False:
-
                 # Read JSON file
                 file = row["filename"].split(".")[0]
                 f = open(f"{root_dir}/data/json/{ file }.json")
@@ -41,7 +39,9 @@ while True:
                     df_save = pd.concat([df_save, df_new], ignore_index=True)
                     df_save = df_save.reset_index(drop=True)
 
-                    df_save_excel = pd.concat([df_save_excel, df_new], ignore_index=True)
+                    df_save_excel = pd.concat(
+                        [df_save_excel, df_new], ignore_index=True
+                    )
                     df_save_excel = df_save_excel.reset_index(drop=True)
 
                     # Save update for file record

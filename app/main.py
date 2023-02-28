@@ -23,6 +23,11 @@ def save_file():
     os.system("python save_file.py")
 
 
+def save_file_2():
+    """save file"""
+    os.system("python save_file_2.py")
+
+
 def save_http_file():
     """save http file"""
     os.system("python save_http_file.py")
@@ -41,8 +46,8 @@ def cleaner():
 # Create a list of functions
 funcs = [
     remote_capture,
-    extract,
-    save_file,
+    # extract,
+    save_file_2,
     cleaner,
     # save_http_file,
     # save_http_db,

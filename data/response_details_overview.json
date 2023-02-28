@@ -1,0 +1,28 @@
+{
+  "data": {
+    "id": 1,
+    "server_name": "Website",
+    "host_name": "172.13.114.15",
+    "type": "Ubuntu 16.04 Xenial Xerus",
+    "alerts_count": 21,
+    "severity": "Low",
+    "standard": "NIST",
+    "last_updated": "2023-02-28",
+    "is_running": true,
+    "details": [
+      {},
+      {}
+    ]
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total_in_page": 10,
+    "total_all_page": 1886
+  },
+  "meta": {
+    "code": 200,
+    "status": "success",
+    "message": ""
+  }
+}
