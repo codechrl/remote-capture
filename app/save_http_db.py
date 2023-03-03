@@ -5,12 +5,11 @@ from datetime import datetime
 
 import influxdb_client
 import pandas as pd
+import settings
 from dotenv import load_dotenv
 from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 from tqdm import tqdm
-
-import settings
 from util import time_now
 
 root_dir = settings.project_dir

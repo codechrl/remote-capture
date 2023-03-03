@@ -2,7 +2,6 @@ import os
 from datetime import datetime
 
 import pandas as pd
-
 import settings
 from util import add_to_dataframe, list_pcap_files, time_now
 

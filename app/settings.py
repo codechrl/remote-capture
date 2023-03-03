@@ -11,7 +11,8 @@ load_dotenv(dotenv_path)
 
 # Access the environment variables
 INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN")
-HOSTNAME = str(os.getenv("HOSTNAME"))
+HOSTNAME = str(os.getenv("HOST_NAME"))
 USERNAME = os.getenv("USER_NAME")
 PASSWORD = os.getenv("PASSWORD")
 PORT = os.getenv("PORT")
+PGSTRING = os.getenv("PGSTRING")

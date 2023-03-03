@@ -4,9 +4,8 @@ import time
 from datetime import datetime
 
 import pandas as pd
-from tqdm import tqdm
-
 import settings
+from tqdm import tqdm
 from util import time_now
 
 root_dir = settings.project_dir

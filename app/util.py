@@ -19,7 +19,7 @@ columns = [
     "src",
     "dst",
     "options",
-    "time",
+    "timestamp",
     "sport",
     "dport",
     "seq",

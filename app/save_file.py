@@ -2,7 +2,6 @@ import json
 import time
 
 import pandas as pd
-
 import settings
 from util import time_now
 

@@ -2,7 +2,6 @@ import os
 import time
 
 import paramiko
-
 import settings
 from util import time_now
 
@@ -18,7 +17,7 @@ PORT = str(settings.PORT)
 # Print ceredentials
 print(f"{time_now()}  INFO\t: HOSTNAME {HOSTNAME}")
 print(f"{time_now()}  INFO\t: USERNAME {USERNAME}")
-print(f"{time_now()}  INFO\t: PASSWORD {PASSWORD}")
+# print(f"{time_now()}  INFO\t: PASSWORD {PASSWORD}")
 print(f"{time_now()}  INFO\t: PORT {PORT}")
 
 # Initialize the activity counter
@@ -38,6 +37,7 @@ except paramiko.SSHException as e:
 
 print(f"{time_now()}  INFO\t: Connected to Remote Server {HOSTNAME}")
 print(f"{time_now()}  INFO\t: Listening")
+print(f"{time_now()}  INFO\t: ACTIVITY_THRESHOLD {ACTIVITY_THRESHOLD}")
 
 # Start the main loop
 while True:

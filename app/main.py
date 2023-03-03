@@ -13,49 +13,17 @@ def remote_capture():
     os.system("python remote_capture.py")
 
 
-def extract():
-    """extract"""
-    os.system("python extract.py")
-
-
-def save_file():
+def save_db_postgre():
     """save file"""
-    os.system("python save_file.py")
-
-
-def save_file_2():
-    """save file"""
-    os.system("python save_file_2.py")
-
-
-def save_http_file():
-    """save http file"""
-    os.system("python save_http_file.py")
-
-
-def save_http_db():
-    """save http db"""
-    os.system("python save_http_db.py")
-
-
-def cleaner():
-    """cleaner"""
-    os.system("python cleaner.py")
+    os.system("python save_db_postgre.py")
 
 
 # Create a list of functions
-funcs = [
-    remote_capture,
-    # extract,
-    save_file_2,
-    cleaner,
-    # save_http_file,
-    # save_http_db,
-]
+funcs = [remote_capture, save_db_postgre]
 
 try:
     # Directory path
-    dirs = ["/data", "/data/pcap", "/data/json"]
+    dirs = ["/data", "/data/pcap"]
 
     # Create directory if it doesn't exist
     for dir in dirs:
@@ -71,18 +39,5 @@ try:
         print(f"{time_now()}  INFO\t: Sucessfully Started {func}")
         time.sleep(1)
 
-    time.sleep(120)
-
-    # Terminate all processes
-    for process in processes:
-        process.terminate()
-        print(f"{time_now()}  INFO\t: Sucessfully Terminated {str(process)}")
-
 except Exception as e:
     print(f"{time_now()}  ERROR\t: {str(e)}")
-
-# finally:
-#     # Terminate all processes
-#     for process in processes:
-#         process.terminate()
-#     pass
