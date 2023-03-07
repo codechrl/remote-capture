@@ -1,9 +1,8 @@
-import json
 import time
 
 import pandas as pd
 import settings
-from pcap_handler import dfHandler, pcapHandler
+from pcap_handler import pcapHandler
 from util import add_to_dataframe, columns, list_pcap_files, time_now
 
 root_dir = settings.project_dir

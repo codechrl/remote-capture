@@ -31,7 +31,7 @@ client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 try:
     client.connect(HOSTNAME, PORT, USERNAME, PASSWORD)
-except paramiko.SSHException as e:
+except paramiko.SSHException:
     client.get_transport().auth_password(HOSTNAME, PASSWORD)
 
 
@@ -48,7 +48,7 @@ while True:
 
     # Capture the PCAP file on the remote server
     CMD = "tcpdump -i any -s 0 -U -w - "
-    FILTER = "not port 22"
+    FILTER = "'not port 22 and not host 51.159.22.177 and not 103.122.5.75'"
     stdin, stdout, stderr = client.exec_command(CMD + FILTER)
 
     while True:

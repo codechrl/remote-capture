@@ -1,7 +1,4 @@
 import json
-import os
-import time
-from datetime import datetime
 
 import pandas as pd
 import settings
@@ -22,7 +19,7 @@ while True:
             df_save = pd.DataFrame()
 
         for idx, row in df_status.iterrows():
-            if row["extracted"] == True and row["saved"] == False:
+            if row["extracted"] is True and row["saved"] is False:
                 # Read JSON file
                 file = row["filename"].split(".")[0]
                 f = open(f"{root_dir}/data/json/{ file }.json")
@@ -41,7 +38,7 @@ while True:
 
                         record = receipt | header | {"body": body}
 
-                    except Exception as e:
+                    except Exception:
                         pass
 
                     try:
@@ -51,7 +48,7 @@ while True:
                         # df_save.to_excel(root_dir+'/data/file_record.xlsx', index=False)
                         # print(f"{time_now()}  INFO\t: Found HTTP Payload")
 
-                    except Exception as e:
+                    except Exception:
                         # print(str(e))
                         pass
 

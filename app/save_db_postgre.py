@@ -1,14 +1,13 @@
 import datetime
-import json
 import os
 import time
 import warnings
 
 import pandas as pd
 import settings
-from pcap_handler import dfHandler, pcapHandler
+from pcap_handler import pcapHandler
 from sqlalchemy import create_engine
-from util import add_to_dataframe, columns, list_pcap_files, time_now
+from util import columns, list_pcap_files, time_now
 
 warnings.filterwarnings("ignore")
 

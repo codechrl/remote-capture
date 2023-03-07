@@ -1,13 +1,11 @@
 import json
 import os
-import time
-from datetime import datetime
 
 import influxdb_client
 import pandas as pd
 import settings
 from dotenv import load_dotenv
-from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from tqdm import tqdm
 from util import time_now
@@ -35,7 +33,7 @@ while True:
         df_status = pd.read_csv(root_dir + "/data/file_status.csv")
 
         for idx, row in df_status.iterrows():
-            if row["extracted"] == True and row["saved"] == False:
+            if row["extracted"] is True and row["saved"] is False:
                 # Read JSON file
                 file = row["filename"].split(".")[0]
                 f = open(f"{root_dir}/data/json/{ file }.json")
@@ -55,7 +53,7 @@ while True:
                         http_payload = receipt | header | {"body": body}
                         # print(f"{time_now()}  INFO\t: Found HTTP Payload")
 
-                    except Exception as e:
+                    except Exception:
                         pass
 
                     try:
@@ -80,7 +78,7 @@ while True:
                         # Write to influx db
                         write_api.write(bucket=bucket, org=org, record=point)
 
-                    except Exception as e:
+                    except Exception:
                         # print(str(e))
                         pass
 

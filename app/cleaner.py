@@ -24,10 +24,10 @@ while True:
                     df.to_csv(root_dir + "/data/file_status.csv", index=False)
                     print(f"{time_now()}  INFO\t: CSV Updated")
 
-            except Exception as e:
+            except Exception:
                 # print(f"{time_now()}  ERROR\t: {str(e)}")
                 pass
 
-    except Exception as e:
+    except Exception:
         # print(f"{time_now()}  ERROR\t: {str(e)}")
         pass
